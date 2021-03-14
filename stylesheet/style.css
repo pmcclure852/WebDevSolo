@@ -1,0 +1,35 @@
+/* Reset */
+* {
+    font-family: Arial, helvitca, sans-serif;
+    color: black;
+}
+
+/* Header Section */
+header {
+    display: grid;
+    grid-template-columns: 200px minmax(300px, 1fr);
+    background-color: dimgray;
+    height: 100px;
+}
+
+#logo {
+    font-size:  80px;
+    margin-left: 15px;
+}
+
+header ul {
+    list-style: none;
+}
+
+header li {
+    display: inline-block;
+    margin-right: 40px;
+    font-size: 20px;
+}
+
+
+/* Body Section */
+
+/* Sidebar Section */
+
+/* Footer Section */
