@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     </head>
 
     <!-- Header section containing the logo and the nav bar -->
@@ -42,10 +43,15 @@
                     <!-- TODO - add links to the venue's pages or maybe create my own? On the areas page with prices etc? -->
                     <!-- TODO - make it work by having all the data then auto selecting based on system/web date etc -->
                     <h2>Upcoming Meets</h2>
-                    <div id="meet1">
-                        <h3>Indoor climbing and bouldering at Northwest Face</h3>
-                        <p>6-10pm at the Northwest Face climbing wall, Warrington.</p>
-                    </div>
+
+                    <script id="sideBarTemplate" type="template/Handlebars">
+                        <div id="meet1">
+                            <h3>{{sideBarHeader}}</h3>
+                            <p>{{sideBarDetails}}</p>
+                        </div>
+                    </script>
+                    <span id="templateTarget"></span>
+
                     <div id="meet2">
                         <h3>Trad climbing at Stanage Edge</h3>
                         <p>9am-6pm at Stanage Edge, the Peak District</p>
@@ -62,6 +68,7 @@
                         <a href="meets.html">View all meets</a>
                     </div>
                 </div>
+
             </div> <!-- end mainContent_topSection -->
 
             <div id="mainContent_bottomSection">
@@ -107,5 +114,9 @@
             <li><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>
             <li><a href="mailto:contactus@wcc.co.uk">email</a></li>
         </ul>
+
     </footer>
+
+    <!-- External scripts -->
+    <script src="scripts/index.js"></script>
 </html>
