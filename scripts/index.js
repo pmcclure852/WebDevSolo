@@ -1,17 +1,71 @@
 
+// All meet data, in ascending date order with dates in ISO 8601 format: YYYY-MM-DD
 
-// document.getElementById('logo').innerHTML = '<a href="index.html">CHANGED IT!!</a>';
+var allData = [
+    {header: "PAST bouldering at the Depot", details: "PAST evening of bouldering at the Depot, Manchester",
+        date: "2021-03-01", time: "18:00 - 22:00"},
+    {header: "Indoor bouldering at the Depot", details: "An evening of bouldering at the Depot, Manchester",
+        date: "2021-03-31", time: "18:00 - 22:00"},
+    {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
+        date: "2021-04-03", time: "09:00 - 18:00"},
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-04-07", time: "18:00 - 22:00"},
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-05-07", time: "18:00 - 22:00"},
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-06-07", time: "18:00 - 22:00"},
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-07-07", time: "18:00 - 22:00"}
+];
 
-// var data = [
-//     {sideBarHeader: 'Meeting Heading 2', sideBarDetails: 'Details of meeting 2'},
-//     {sideBarHeader: 'Meeting Heading 3', sideBarDetails: 'Details of meeting 3'},
-//     {sideBarHeader: 'Meeting Heading 4', sideBarDetails: 'Details of meeting 4'}
-// ];
+var sidebarData = [];
 
-var template = document.getElementById('sideBarTemplate').innerHTML;
-var compiledTemp = Handlebars.compile(template);
-var renderedTemp = compiledTemp({
-    sideBarHeader: 'Meeting Heading 1',
-    sideBarDetails: 'Details of the meeting 1'
+// Create arrays to display human friendly days and months
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// Loop the data and create array of the next 4 meets
+// TODO: What if allData if not in date order!?
+
+for (var i=0; i<allData.length; i++)
+{
+    if(Date.parse(allData[i].date) > Date.now()) {
+
+        var dateParsed = new Date(allData[i].date);
+        allData[i].date = days[dateParsed.getDay()] + " " + dateParsed.getDate() + " " + months[dateParsed.getMonth()]
+            + " " + dateParsed.getFullYear();
+        sidebarData.push(allData[i]);
+
+        if (sidebarData.length >= 3) {
+            break;
+        }
+    }
+}
+
+// Add array to object for the sidebar template
+var data = {listItems: sidebarData}
+
+// Create and render sidebar template, looping through data object
+// Escape data to prevent code input causing errors and return safe string
+// TODO: links to meet items on meets page?
+
+var template2 = document.getElementById("sideBarTemplate2").innerHTML;
+var compiledTemp2 = Handlebars.compile(template2);
+
+Handlebars.registerHelper("meetingsList", function (listItems){
+    var output = "";
+    for (var i=0; i<listItems.length; i++)
+    {
+        output +=   "<div>" +
+                        "<h3>" + Handlebars.Utils.escapeExpression(listItems[i].header) + "</h3>" +
+                        "<p>" + listItems[i].date + "<br>" + listItems[i].time + "</p>" +
+                        "<p>" + Handlebars.Utils.escapeExpression(listItems[i].details) + "</p>" +
+                    "</div>"
+    }
+    return new Handlebars.SafeString(output);
 });
-document.getElementById('templateTarget').innerHTML = renderedTemp;
+
+var renderedTemp2 = compiledTemp2(data);
+document.getElementById("template2Target").innerHTML = renderedTemp2;
+
+

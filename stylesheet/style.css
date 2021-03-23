@@ -172,20 +172,31 @@ html {
 
 /* Footer Section */
 footer {
-    background-color: darkgrey;
+    background-color: black;
     margin-top: 20px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
 }
 
 footer ul {
     list-style: none;
-    text-align: center;
+    /*text-align: center;    */
 }
 
 footer li {
     display: inline-block;
-    padding-right: 100px;
+    /*padding-right: 100px;*/
+}
+
+footer a {
+    color: white;
 }
 
 footer img {
     box-shadow: none;
+}
+
+.footerText {
+    /*margin-top: 20px;*/
 }
