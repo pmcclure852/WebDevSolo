@@ -5,19 +5,19 @@ console.log(document.URL);
 
 var allData = [
     {header: "PAST bouldering at the Depot", details: "PAST evening of bouldering at the Depot, Manchester",
-        date: "2021-03-01", time: "18:00 - 22:00"},
+        date: "2021-03-01", time: "18:00 - 22:00", tags: ["bouldering", "midweek"]},
     {header: "Indoor bouldering at the Depot", details: "An evening of bouldering at the Depot, Manchester",
-        date: "2021-03-31", time: "18:00 - 22:00"},
+        date: "2021-03-31", time: "18:00 - 22:00", tags: ["bouldering", "midweek"]},
     {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
-        date: "2021-04-03", time: "09:00 - 18:00"},
+        date: "2021-04-03", time: "09:00 - 18:00", tags: ["trad", "weekend"]},
     {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-        date: "2021-04-07", time: "18:00 - 22:00"},
-    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-        date: "2021-05-07", time: "18:00 - 22:00"},
-    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-        date: "2021-06-07", time: "18:00 - 22:00"},
-    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-        date: "2021-07-07", time: "18:00 - 22:00"}
+        date: "2021-04-07", time: "18:00 - 22:00", tags: ["sport", "bouldering", "midweek", "indoor"]}
+    // {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+    //     date: "2021-05-07", time: "18:00 - 22:00"},
+    // {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+    //     date: "2021-06-07", time: "18:00 - 22:00"},
+    // {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+    //     date: "2021-07-07", time: "18:00 - 22:00"}
 ];
 
 // Create arrays to display human friendly days and months
@@ -33,6 +33,18 @@ if (document.URL.includes("meets.html")){
         console.log("Sport is checked!")
     }
 
+    // Create an array of the checkboxes to check!
+    var checkBoxes = document.getElementsByClassName("filterCheck")
+    var checked = [];
+
+    // Check the array for the checked items and create another array with those id's
+    for (var i=0; i<checkBoxes.length; i++) {
+        console.log(checkBoxes[i]);
+        if (checkBoxes[i].checked) {
+            // console.log("We've got a checker! " + checkBoxes[i].id)
+            checked.push(checkBoxes[i].id);
+        }
+    }
 
     // Create date object of now to use to compare months etc
     var now = new Date(Date.now());
@@ -40,11 +52,29 @@ if (document.URL.includes("meets.html")){
     //Set month to this month first time round
     var month = now.getMonth();
 
-    // Loop the data and create array of the selected month
+    // Create array to store meet data for template
+    var meetsData = [];
+
+    // Loop the data and add to array for the relevant month
     for (var i = 0; i < allData.length; i++) {
         var meetDate = new Date(Date.parse(allData[i].date));
+
         if (meetDate.getMonth() === month) {
-            console.log("Lift-off!!!");
+            var matches = [];
+            for (var j=0; j<allData[i].tags.length; j++) {
+                for (var k=0; k<checked.length; k++){
+                    if (checked[k] === allData[i].tags[j]) {
+                        console.log("match! " + checked[k] + " is in " + allData[i].date + " " + allData[i].details);
+                        matches.push(allData[i]); // hmmmm
+                    }
+                }
+            }
+
+
+
+
+            // if (allData[i].)
+            //     console.log("Lift-off!!!");
             // var dateParsed = Date.parse(allData[i].date);
             // allData[i].date = days[dateParsed.getDay()] + " " + dateParsed.getDate() + " " + months[dateParsed.getMonth()]
             //     + " " + dateParsed.getFullYear();
