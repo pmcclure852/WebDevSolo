@@ -1,9 +1,10 @@
+/* remove sidebar when viewport < 900 */
+/* TODO: generally make this good! */
 @media screen and (max-width: 900px) {
     #sideBar {
         display: none;
     }
 }
-
 
 /* Reset */
 * {
@@ -25,7 +26,7 @@ div {
     /*border-style: dotted ;*/
 }
 
-img {
+.boxImage {
     box-shadow: 0 0 0 5px black, 15px 15px darkorange;
     margin: 0px 10px 10px 0px;
 }
@@ -54,6 +55,8 @@ header a {
 
 header ul {
     list-style: none;
+    justify-self: end;
+    align-self: end;
 }
 
 header li {
