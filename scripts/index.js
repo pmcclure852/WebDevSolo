@@ -1,13 +1,11 @@
 
-console.log(document.URL);
-
 // All meet data, in ascending date order with dates in ISO 8601 format: YYYY-MM-DD
 
 var allData = [
     {header: "PAST bouldering at the Depot", details: "PAST evening of bouldering at the Depot, Manchester",
         date: "2021-03-01", time: "18:00 - 22:00", tags: ["bouldering", "midweek"]},
     {header: "Indoor bouldering at the Depot", details: "An evening of bouldering at the Depot, Manchester",
-        date: "2021-03-31", time: "18:00 - 22:00", tags: ["bouldering", "midweek"]},
+        date: "2021-03-31", time: "18:00 - 22:00", tags: ["bouldering", "weekend"]},
     {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
         date: "2021-04-03", time: "09:00 - 18:00", tags: ["trad", "weekend"]},
     {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
@@ -26,63 +24,86 @@ var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 
 // Code for meet items on meets page
 if (document.URL.includes("meets.html")){
-    console.log("we're on meets page!")
 
-    // Check some check boxes!
-    if (document.getElementById("sport").checked){
-        console.log("Sport is checked!")
+    // Get the checkboxes to check!
+    var checkBoxes = document.getElementsByClassName("filterCheck")
+
+    // Push checked day type id's to dayTypeChecked array
+    var dayTypeChecked = [];
+
+    for (var i=0; i<checkBoxes.length; i++) {
+        if (checkBoxes[i].checked) {
+            if (
+                checkBoxes[i].id === "midweek" ||
+                checkBoxes[i].id === "weekend" ||
+                checkBoxes[i].id === "multiday"
+            )
+            dayTypeChecked.push(checkBoxes[i].id);
+        }
     }
 
-    // Create an array of the checkboxes to check!
-    var checkBoxes = document.getElementsByClassName("filterCheck")
-    var checked = [];
+    // Push checked climb type id's to climbTypeChecked array
+    var climbTypeChecked = [];
 
-    // Check the array for the checked items and create another array with those id's
     for (var i=0; i<checkBoxes.length; i++) {
-        console.log(checkBoxes[i]);
         if (checkBoxes[i].checked) {
-            // console.log("We've got a checker! " + checkBoxes[i].id)
-            checked.push(checkBoxes[i].id);
+            if (
+                checkBoxes[i].id !== "midweek" &&
+                checkBoxes[i].id !== "weekend" &&
+                checkBoxes[i].id !== "multiday"
+            )
+            climbTypeChecked.push(checkBoxes[i].id);
         }
     }
 
     // Create date object of now to use to compare months etc
     var now = new Date(Date.now());
 
-    //Set month to this month first time round
+    //Create and month to this month first time round
     var month = now.getMonth();
 
-    // Create array to store meet data for template
-    var meetsData = [];
+    // Create array to store the items that match the day type
+    var dayTypeMatches = [];
 
     // Loop the data and add to array for the relevant month
     for (var i = 0; i < allData.length; i++) {
+        // Get the month of the meet
         var meetDate = new Date(Date.parse(allData[i].date));
-
+        // Check meet matches the month we want
         if (meetDate.getMonth() === month) {
-            var matches = [];
+            // Loop the tags to check for day type match
+
             for (var j=0; j<allData[i].tags.length; j++) {
-                for (var k=0; k<checked.length; k++){
-                    if (checked[k] === allData[i].tags[j]) {
-                        console.log("match! " + checked[k] + " is in " + allData[i].date + " " + allData[i].details);
-                        matches.push(allData[i]); // hmmmm
+                for (var k=0; k<dayTypeChecked.length; k++){
+                    if (dayTypeChecked[k] === allData[i].tags[j]) {
+                        dayTypeMatches.push(allData[i]);
+                        break;
                     }
                 }
             }
+        }
+    }
 
-
-
-
-            // if (allData[i].)
-            //     console.log("Lift-off!!!");
-            // var dateParsed = Date.parse(allData[i].date);
-            // allData[i].date = days[dateParsed.getDay()] + " " + dateParsed.getDate() + " " + months[dateParsed.getMonth()]
-            //     + " " + dateParsed.getFullYear();
-            // sidebarData.push(allData[i]);
-            //
-            // if (sidebarData.length >= 3) {
-            //     break;
-            // }
+    // Create array for template data
+    var templateData = [];
+    // Take the day type matches and loop checking for climbing type match
+    // Loop through the dayTypeMatches
+    for (var i=0; i<dayTypeMatches.length; i++) {
+        // Create variable to stop duplicate entries for multiple matches and unnecessary looping
+        var matched = false;
+        // Loop through the tags
+        for (var j=0; j<dayTypeMatches[i].tags.length; j++) {
+            if (matched) {
+                break;
+            }
+            // Check against the climbTypeChecked id's
+            for (var k=0; k<climbTypeChecked.length; k++) {
+                if (climbTypeChecked[k] === dayTypeMatches[i].tags[j]) {
+                    templateData.push(dayTypeMatches[i]);
+                    matched = true;
+                    break;
+                }
+            }
         }
     }
 
