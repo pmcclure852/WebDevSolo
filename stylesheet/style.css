@@ -1,9 +1,10 @@
+/* remove sidebar when viewport < 900 */
+/* TODO: generally make this good! */
 @media screen and (max-width: 900px) {
     #sideBar {
         display: none;
     }
 }
-
 
 /* Reset */
 * {
@@ -25,7 +26,7 @@ div {
     /*border-style: dotted ;*/
 }
 
-img {
+.boxImage {
     box-shadow: 0 0 0 5px black, 15px 15px darkorange;
     margin: 0px 10px 10px 0px;
 }
@@ -54,6 +55,8 @@ header a {
 
 header ul {
     list-style: none;
+    justify-self: end;
+    align-self: end;
 }
 
 header li {
@@ -92,7 +95,7 @@ html {
     margin-top: 10px;
 }
 
-#mainContent_bottomSection :nth-child(2), :nth-child(3) {
+#mainContent_bottomSection :nth-child(2), #mainContent_bottomSection :nth-child(3) {
     grid-column: span 2;
 
 }
@@ -172,20 +175,31 @@ html {
 
 /* Footer Section */
 footer {
-    background-color: darkgrey;
+    background-color: black;
     margin-top: 20px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
 }
 
 footer ul {
     list-style: none;
-    text-align: center;
+    /*text-align: center;    */
 }
 
 footer li {
     display: inline-block;
-    padding-right: 100px;
+    /*padding-right: 100px;*/
+}
+
+footer a {
+    color: white;
 }
 
 footer img {
     box-shadow: none;
+}
+
+.footerText {
+    /*margin-top: 20px;*/
 }

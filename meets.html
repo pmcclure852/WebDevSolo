@@ -1,10 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Meets</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Meets</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet/meets.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    </head>
 
-</body>
+    <!-- Header section containing the logo and the nav bar -->
+    <header>
+        <!-- Logo made from text, probably imported font, links back to home page -->
+        <div id="logo"><a href="index.html">WCC</a></div>
+
+        <!-- Nav bar -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="meets.html">Meets</a></li>
+            <li><a href="hut.html">Hut</a></li>
+            <li><a href="areas.html">Climbing Areas</a></li>
+            <li><a href="info.html">Club Info</a></li>
+        </ul>
+    </header>
+
+    <!-- Body for the main content -->
+    <body>
+        <div id="mainContentWrapper">
+            <div id="filterArea">
+                <div>
+                    <h1>Meets</h1>
+                    <h2>March 2021</h2>
+                </div>
+                <!-- Filter area -->
+                <div id="filterBox">
+                    <div>
+                        <input class="filterCheck" type="checkbox" id="sport" checked>
+                        <label for="sport">Sport</label>
+                        <br>
+<!--                    </div>-->
+<!--                    <div>-->
+                        <input type="checkbox" id="trad" checked>
+                        <label for="trad">Trad</label>
+                    </div>
+                    <div>
+                        <input class="filterCheck" type="checkbox" id="bouldering" checked>
+                        <label for="bouldering">Bouldering</label>
+                        <br>
+<!--                    </div>-->
+<!--                    <div>-->
+                        <input class="filterCheck" type="checkbox" id="multipitch" checked>
+                        <label for="multipitch">Multi-pitch</label>
+                    </div>
+                    <div>
+                        <input class="filterCheck" type="checkbox" id="weekend" checked>
+                        <label for="weekend">Weekend</label>
+                        <br>
+<!--                    </div>-->
+<!--                    <div>-->
+                        <input class="filterCheck" type="checkbox" id="midweek" checked>
+                        <label for="midweek">Midweek</label>
+                    </div>
+                    <div>
+                        <input class="filterCheck" type="checkbox" id="multiday" checked>
+                        <label for="multiday">Multi-day</label>
+                    </div>
+                </div>
+            </div> <!-- End filterArea -->
+
+            <!-- Areas for meet details -->
+            <div id="meetsArea">
+                <!-- meetBox template -->
+                <script id="meetsTemplate" type="template/Handlebars">
+                    {{meets meetsData}}
+                </script>
+                <span id="meetsTarget"></span>
+
+<!--                <div class="meetBox">-->
+<!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
+<!--                    <h3>Saturday 27 March</h3>-->
+<!--                    <h3>The Roaches, the Peak District</h3>-->
+<!--                    <p>09:00 - 18:30</p>-->
+<!--                    <p>Details</p>-->
+<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+<!--                </div>-->
+<!--                <div class="meetBox">-->
+<!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
+<!--                    <h3>Wednesday 31 March</h3>-->
+<!--                    <h3>The Northwest Face, Warrington</h3>-->
+<!--                    <p>18:30 - 22:00</p>-->
+<!--                    <p>Details</p>-->
+<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+<!--                </div>-->
+            </div> <!-- End meetsArea -->
+        </div> <!-- End mainContentWrapper -->
+    </body>
+
+    <!-- Footer -->
+    <footer>
+        <div></div>
+        <ul>
+            <li class="footerImage"><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>
+            <li ><a href="mailto:contactus@wcc.co.uk" class="footerText">contactus@wcc.co.uk</a></li>
+            <li ><a href="tel:+447772502185" class="footerText">tel: 07772 502 185</a></li>
+        </ul>
+        <div></div>
+    </footer>
+    <script src="scripts/index.js"></script>
 </html>

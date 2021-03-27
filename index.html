@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     </head>
 
     <!-- Header section containing the logo and the nav bar -->
@@ -42,32 +43,40 @@
                     <!-- TODO - add links to the venue's pages or maybe create my own? On the areas page with prices etc? -->
                     <!-- TODO - make it work by having all the data then auto selecting based on system/web date etc -->
                     <h2>Upcoming Meets</h2>
-                    <div id="meet1">
-                        <h3>Indoor climbing and bouldering at Northwest Face</h3>
-                        <p>6-10pm at the Northwest Face climbing wall, Warrington.</p>
-                    </div>
-                    <div id="meet2">
-                        <h3>Trad climbing at Stanage Edge</h3>
-                        <p>9am-6pm at Stanage Edge, the Peak District</p>
-                    </div>
-                    <div id="meet3">
-                        <h3>Indoor bouldering at the Depot</h3>
-                        <p>6-10pm at the Depot, Manchester</p>
-                    </div>
-                    <div id="meet4">
-                        <h3>Trad climbing and bouldering at the Roaches</h3>
-                        <p>9am-6pm at the Roaches, the Peak District</p>
-                    </div>
+<!--                    <script id="sideBarTemplate1" type="template/Handlebars">-->
+<!--                        <div id="meet1">-->
+<!--                            <h3>{{sideBarHeader}}</h3>-->
+<!--                            <p>{{sideBarDetails}}</p>-->
+<!--                        </div>-->
+<!--                    </script>-->
+<!--                    <span id="template1Target"></span>-->
+                    <script id="sideBarTemplate2" type="template/Handlebars">
+                        {{meetingsList listItems}}
+                    </script>
+                    <span id="template2Target"></span>
+<!--                    <div id="meet2">-->
+<!--                        <h3>Trad climbing at Stanage Edge</h3>-->
+<!--                        <p>9am-6pm at Stanage Edge, the Peak District</p>-->
+<!--                    </div>-->
+<!--                    <div id="meet3">-->
+<!--                        <h3>Indoor bouldering at the Depot</h3>-->
+<!--                        <p>6-10pm at the Depot, Manchester</p>-->
+<!--                    </div>-->
+<!--                    <div id="meet4">-->
+<!--                        <h3>Trad climbing and bouldering at the Roaches</h3>-->
+<!--                        <p>9am-6pm at the Roaches, the Peak District</p>-->
+<!--                    </div>-->
                     <div id="meetsButton">
                         <a href="meets.html">View all meets</a>
                     </div>
                 </div>
+
             </div> <!-- end mainContent_topSection -->
 
             <div id="mainContent_bottomSection">
                 <!-- Static image -->
                 <div class="imageWrapper">
-                    <img src="img/seaCliff_square.jpg" height="350" width="350" alt="Photo of a rock climber on sea cliff"/>
+                    <img class="boxImage" src="img/seaCliff_square.jpg" height="350" width="350" alt="Photo of a rock climber on sea cliff"/>
                 </div>
                 <div>
                     <h2>Why WCC?</h2>
@@ -83,11 +92,11 @@
                 <div>
                     <h2>The Hut</h2>
                     <p>We are very proud of our hut and it's beautiful location in the Lake District. As a member you are
-                     free to book a bed for you and your party whenever one is available. Head on over to the
+                     free to book beds for you and your party whenever one is available. Head on over to the
                         <a href="hut.html">hut page</a> for all of the details.</p>
                 </div>
                 <div class="imageWrapper">
-                    <img src="img/hut.jpg" height="350" width="350" alt="Photo of the Hut"/>
+                    <img class="boxImage" src="img/hut.jpg" height="350" width="350" alt="Photo of the Hut"/>
                 </div>
             </div> <!-- end mainContent_bottomSection -->
         </div> <!-- end mainContentWrapper -->
@@ -103,9 +112,15 @@
 
     <!-- Footer -->
     <footer>
+        <div></div>
         <ul>
-            <li><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>
-            <li><a href="mailto:contactus@wcc.co.uk">email</a></li>
+            <li class="footerImage"><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>
+            <li ><a href="mailto:contactus@wcc.co.uk" class="footerText">contactus@wcc.co.uk</a></li>
+            <li ><a href="tel:+447772502185" class="footerText">tel: 07772 502 185</a></li>
         </ul>
+        <div></div>
     </footer>
+
+    <!-- External scripts -->
+    <script src="scripts/index.js"></script>
 </html>

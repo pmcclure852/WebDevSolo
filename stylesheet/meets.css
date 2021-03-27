@@ -1,0 +1,45 @@
+
+/* Meets page specific CSS styling */
+#filterArea {
+    display: grid;
+    grid-template-columns: 1fr 550px;
+}
+
+#filterBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 3px;
+    padding: 10px;
+    margin: 10px 0px 10px 10px;
+    box-shadow: 0 0 0 5px black, 15px 15px limegreen;
+    height: 70px;
+    align-self: end;
+}
+
+#meetsArea span{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.meetBox {
+    border-style: dotted;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.meetBox h3 {
+    margin-top: 0;
+}
+
+.meetBoxImage {
+    float: right;
+}
+
+.meetBoxIcon {
+    margin-right: 5px;
+}
