@@ -95,7 +95,7 @@ html {
     margin-top: 10px;
 }
 
-#mainContent_bottomSection :nth-child(2), :nth-child(3) {
+#mainContent_bottomSection :nth-child(2), #mainContent_bottomSection :nth-child(3) {
     grid-column: span 2;
 
 }

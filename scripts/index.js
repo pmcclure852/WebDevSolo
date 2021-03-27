@@ -105,7 +105,7 @@ if (document.URL.includes("meets.html")){
     }
 
     // Create meets template
-    var meetsTemplate = document.getElementById("meetsTemplate");
+    var meetsTemplate = document.getElementById("meetsTemplate").innerHTML;
     var compMeetsTemplate = Handlebars.compile(meetsTemplate);
 
     var meetsData = {meetsData: templateData}
@@ -115,18 +115,23 @@ if (document.URL.includes("meets.html")){
         for (var i=0; i<meetsData.length; i++) {
             var meetDateParsed = new Date(meetsData[i].date);
             output +=
-                "<div className='meetBox'>" +
-                "<img className='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
+                "<div class='meetBox'>" +
+                "<img class='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
                     "<h3>" + days[meetDateParsed.getDay()] + " " + meetDateParsed.getDate() + " " +
-                        months[meetDateParsed.getMonth()] + " " + dateParsed.getFullYear() + "</h3>"
-                //     <h3>" + "The Roaches, the Peak District" + "</h3>
-                //     <p>" + "09:00 - 18:30" + "</p>
-                //     <p>" + "Details" + "
-                //     <img src='img/30x30.png' alt='climbing type icon'>
-                //     <img src='img/30x30.png' alt='climbing type icon'>
-                // </div>"
+                        months[meetDateParsed.getMonth()] + " " + meetDateParsed.getFullYear() + "</h3>" +
+                    "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
+                    "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].time) + "</p>" +
+                    "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].details) + "</p>" +
+                    "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>" +
+                    "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>"
+            output += "</div>";
+
         }
+        return new Handlebars.SafeString(output);
     })
+
+    var rendMeetsTemplate = compMeetsTemplate(meetsData);
+    document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
 }
 
 
