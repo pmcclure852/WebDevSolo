@@ -4,8 +4,14 @@
 var allData = [
     {header: "PAST bouldering at the Depot", details: "PAST evening of bouldering at the Depot, Manchester",
         date: "2021-03-01", time: "18:00 - 22:00", tags: ["bouldering", "midweek"]},
-    {header: "Indoor bouldering at the Depot", details: "An evening of bouldering at the Depot, Manchester",
-        date: "2021-03-31", time: "18:00 - 22:00", tags: ["bouldering", "weekend"]},
+    {header: "Indoor climbing at the Depot", details: "An evening of bouldering at the Depot, Manchester",
+        date: "2021-03-05", time: "18:00 - 22:00", tags: ["sport", "midweek"]},
+    {header: "Trad climbing at the Roaches", details: "Trad climbing at the Roaches, the Peak District",
+        date: "2021-03-06", time: "10:00 - 18:00", tags: ["trad", "weekend"]},
+    {header: "Multi-pitch climbing at Idwal Slabs", details: "Trad climbing at Idwal Slabs, Ogwen Valley, North Wales",
+        date: "2021-03-20", time: "10:00 - 18:00", tags: ["trad", "weekend", "multipitch"]},
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-03-31", time: "18:00 - 22:00", tags: ["bouldering", "midweek", "sport"]},
     {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
         date: "2021-04-03", time: "09:00 - 18:00", tags: ["trad", "weekend"]},
     {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
@@ -28,8 +34,9 @@ if (document.URL.includes("meets.html")){
     // Get the checkboxes to check!
     var checkBoxes = document.getElementsByClassName("filterCheck")
 
-    // Push checked day type id's to dayTypeChecked array
+    // Push checked id's to arrays
     var dayTypeChecked = [];
+    var climbTypeChecked = [];
 
     for (var i=0; i<checkBoxes.length; i++) {
         if (checkBoxes[i].checked) {
@@ -37,22 +44,12 @@ if (document.URL.includes("meets.html")){
                 checkBoxes[i].id === "midweek" ||
                 checkBoxes[i].id === "weekend" ||
                 checkBoxes[i].id === "multiday"
-            )
-            dayTypeChecked.push(checkBoxes[i].id);
-        }
-    }
-
-    // Push checked climb type id's to climbTypeChecked array
-    var climbTypeChecked = [];
-
-    for (var i=0; i<checkBoxes.length; i++) {
-        if (checkBoxes[i].checked) {
-            if (
-                checkBoxes[i].id !== "midweek" &&
-                checkBoxes[i].id !== "weekend" &&
-                checkBoxes[i].id !== "multiday"
-            )
-            climbTypeChecked.push(checkBoxes[i].id);
+            ) {
+                dayTypeChecked.push(checkBoxes[i].id);
+            }
+            else {
+                climbTypeChecked.push(checkBoxes[i].id);
+            }
         }
     }
 
@@ -107,7 +104,31 @@ if (document.URL.includes("meets.html")){
         }
     }
 
+    // Create meets template
+    var meetsTemplate = document.getElementById("meetsTemplate");
+    var compMeetsTemplate = Handlebars.compile(meetsTemplate);
+
+    var meetsData = {meetsData: templateData}
+
+    Handlebars.registerHelper("meets", function(meetsData) {
+        var output = "";
+        for (var i=0; i<meetsData.length; i++) {
+            var meetDateParsed = new Date(meetsData[i].date);
+            output +=
+                "<div className='meetBox'>" +
+                "<img className='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
+                    "<h3>" + days[meetDateParsed.getDay()] + " " + meetDateParsed.getDate() + " " +
+                        months[meetDateParsed.getMonth()] + " " + dateParsed.getFullYear() + "</h3>"
+                //     <h3>" + "The Roaches, the Peak District" + "</h3>
+                //     <p>" + "09:00 - 18:30" + "</p>
+                //     <p>" + "Details" + "
+                //     <img src='img/30x30.png' alt='climbing type icon'>
+                //     <img src='img/30x30.png' alt='climbing type icon'>
+                // </div>"
+        }
+    })
 }
+
 
 
 // Code for sidebar on index.html. only run if on home page!

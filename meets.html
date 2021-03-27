@@ -42,7 +42,7 @@
                         <label for="trad">Trad</label>
                     </div>
                     <div>
-                        <input class="filterCheck" type="checkbox" id="bouldering" checked>
+                        <input class="filterCheck" type="checkbox" id="bouldering" >
                         <label for="bouldering">Bouldering</label>
                     </div>
                     <div>
@@ -66,6 +66,12 @@
 
             <!-- Areas for meet details -->
             <div id="meetsArea">
+                <!-- meetBox template -->
+                <script id="meetsTemplate" type="template/Handlebars">
+                    {{meets meetsData}}
+                </script>
+                <span id="meetsTarget"
+
                 <div class="meetBox">
                     <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">
                     <h3>Saturday 27 March</h3>
