@@ -9,7 +9,7 @@ var allData = [
     {header: "Trad climbing at the Roaches", details: "Trad climbing at the Roaches, the Peak District",
         date: "2021-03-06", time: "10:00 - 18:00", tags: ["trad", "weekend"]},
     {header: "Multi-pitch climbing at Idwal Slabs", details: "Trad climbing at Idwal Slabs, Ogwen Valley, North Wales",
-        date: "2021-03-20", time: "10:00 - 18:00", tags: ["trad", "weekend", "multipitch"]},
+        date: "2021-03-27", time: "10:00 - 18:00", tags: ["trad", "weekend", "multipitch"]},
     {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
         date: "2021-03-31", time: "18:00 - 22:00", tags: ["bouldering", "midweek", "sport"]},
     {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
@@ -27,9 +27,58 @@ var allData = [
 // Create arrays to display human friendly days and months
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var monthsFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+    "November", "December"]
 
 // Code for meet items on meets page
 if (document.URL.includes("meets.html")){
+
+    // Create date object for the meets template
+    var now = new Date(Date.now());
+    var dispMonth = now.getMonth();
+    var curMonth = now.getMonth();
+
+    // Create onclick event for filter checkboxes
+    var checkboxes = document.getElementsByClassName("filterCheck");
+    for (var i=0; i<checkboxes.length; i++) {
+        checkboxes[i].onclick = function () {
+            renderMeets(dispMonth)
+        };
+    }
+
+    // Month navigation
+    // Handle end of data
+    var endOfNav = false;
+
+    // Create onclick events for month navigation
+    document.getElementById("monthBack").onclick = function () {
+        if (dispMonth > curMonth) {
+            dispMonth -= 1;
+            renderMeets(dispMonth);
+            endOfNav = false;
+        }
+    }
+
+    document.getElementById("monthForward").onclick = function () {
+        if (!endOfNav) {
+            dispMonth += 1;
+            renderMeets(dispMonth);
+        }
+    }
+
+    renderMeets(dispMonth);
+}
+
+// Function for rendering meet boxes
+function renderMeets(month) {
+
+    // Populate current month heading
+    var monthTemp = document.getElementById("monthTemplate").innerHTML;
+    var compMonthTemp = Handlebars.compile(monthTemp);
+    var rendMonthTemp = compMonthTemp({
+        currentMonth: monthsFull[month] + " " + now.getFullYear()
+    })
+    document.getElementById("monthTarget").innerHTML = rendMonthTemp;
 
     // Get the checkboxes to check!
     var checkBoxes = document.getElementsByClassName("filterCheck")
@@ -53,12 +102,6 @@ if (document.URL.includes("meets.html")){
         }
     }
 
-    // Create date object of now to use to compare months etc
-    var now = new Date(Date.now());
-
-    //Create and month to this month first time round
-    var month = now.getMonth();
-
     // Create array to store the items that match the day type
     var dayTypeMatches = [];
 
@@ -67,7 +110,7 @@ if (document.URL.includes("meets.html")){
         // Get the month of the meet
         var meetDate = new Date(Date.parse(allData[i].date));
         // Check meet matches the month we want
-        if (meetDate.getMonth() === month) {
+        if (meetDate.getMonth() === month && meetDate.getDate() >= now.getDate()) {
             // Loop the tags to check for day type match
 
             for (var j=0; j<allData[i].tags.length; j++) {
@@ -104,35 +147,64 @@ if (document.URL.includes("meets.html")){
         }
     }
 
-    // Create meets template
-    var meetsTemplate = document.getElementById("meetsTemplate").innerHTML;
-    var compMeetsTemplate = Handlebars.compile(meetsTemplate);
+    //TODO: ARRRRGGGGGHHHHHHHH WHAT IF IT'S EMPTY BECAUSE FILTERED OUT!?
 
-    var meetsData = {meetsData: templateData}
+    if (templateData.length >= 1) {
+        // Create meets template
+        var meetsTemplate = document.getElementById("meetsTemplate").innerHTML;
+        var compMeetsTemplate = Handlebars.compile(meetsTemplate);
 
-    Handlebars.registerHelper("meets", function(meetsData) {
-        var output = "";
-        for (var i=0; i<meetsData.length; i++) {
-            var meetDateParsed = new Date(meetsData[i].date);
-            output +=
-                "<div class='meetBox'>" +
-                "<img class='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
-                    "<h3>" + days[meetDateParsed.getDay()] + " " + meetDateParsed.getDate() + " " +
+        var meetsData = {meetsData: templateData}
+
+        Handlebars.registerHelper("meets", function (meetsData) {
+            var output = "";
+            for (var i = 0; i < meetsData.length; i++) {
+                var meetDateParsed = new Date(meetsData[i].date);
+                output +=
+                    "<div class='meetBox'>" +
+                        "<img class='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
+                        "<h3>" + days[meetDateParsed.getDay()] + " " + meetDateParsed.getDate() + " " +
                         months[meetDateParsed.getMonth()] + " " + meetDateParsed.getFullYear() + "</h3>" +
-                    "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
-                    "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].time) + "</p>" +
-                    "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].details) + "</p>" +
+                        "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
+                        "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].time) + "</p>" +
+                        "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].details) + "</p>" +
+                        "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>" +
+                        "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>"
+                output += "</div>";
+
+            }
+            return new Handlebars.SafeString(output);
+        })
+
+        var rendMeetsTemplate = compMeetsTemplate(meetsData);
+        document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
+    }
+    else {
+        var meetsTemplate = document.getElementById("meetsTemplate").innerHTML;
+        var compMeetsTemplate = Handlebars.compile(meetsTemplate);
+
+        Handlebars.registerHelper("meets", function () {
+            return new Handlebars.SafeString(
+                "<div class='meetBox'>" +
+                    "<img class='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
+                    "<h3>Sorry!</h3>" +
+                    // "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
+                    "<p>We've not got meetings arranged that far ahead.</p>" +
+                    "<p>Check back soon :)</p>" +
                     "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>" +
-                    "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>"
-            output += "</div>";
+                    "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>" +
+                "</div>"
+            )
+        })
 
-        }
-        return new Handlebars.SafeString(output);
-    })
-
-    var rendMeetsTemplate = compMeetsTemplate(meetsData);
-    document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
+        var rendMeetsTemplate = compMeetsTemplate();
+        document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
+        endOfNav = true;
+    }
 }
+
+
+
 
 
 
@@ -181,4 +253,7 @@ if (document.URL.includes("index.html")) {
     var renderedTemp2 = compiledTemp2(data);
     document.getElementById("template2Target").innerHTML = renderedTemp2;
 }
+
+
+
 

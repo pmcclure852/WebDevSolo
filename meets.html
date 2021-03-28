@@ -27,18 +27,27 @@
     <body>
         <div id="mainContentWrapper">
             <div id="filterArea">
-                <div>
+                <div id="meetsIntro">
                     <h1>Meets</h1>
-                    <h2>March 2021</h2>
+                    <p>Welcome to our meets page, here you will find all of the details of when and where we're going
+                        climbing, which is what it's all about!</p>
+                    <p>Use the orange buttons below to change month, and the tick boxes to filter the
+                        times and types of climbing you're interested in.</p>
                 </div>
-                <!-- Filter area -->
-                <div id="filterBox">
+
+                <img id="meetsIntroImage" class="boxImage" src="img/meets.jpg" alt="photo of a group of climbers" />
+
+                <!-- Month nav and filter box -->
+                <div id="navArrows">
+                    <span id="monthBack" class="navArrow"><</span>
+                    <span id="monthForward" class="navArrow">></span>
+                </div>
+
+                <div id="filterBox" style="float: right">
                     <div>
                         <input class="filterCheck" type="checkbox" id="sport" checked>
                         <label for="sport">Sport</label>
                         <br>
-<!--                    </div>-->
-<!--                    <div>-->
                         <input type="checkbox" id="trad" checked>
                         <label for="trad">Trad</label>
                     </div>
@@ -46,8 +55,6 @@
                         <input class="filterCheck" type="checkbox" id="bouldering" checked>
                         <label for="bouldering">Bouldering</label>
                         <br>
-<!--                    </div>-->
-<!--                    <div>-->
                         <input class="filterCheck" type="checkbox" id="multipitch" checked>
                         <label for="multipitch">Multi-pitch</label>
                     </div>
@@ -55,8 +62,6 @@
                         <input class="filterCheck" type="checkbox" id="weekend" checked>
                         <label for="weekend">Weekend</label>
                         <br>
-<!--                    </div>-->
-<!--                    <div>-->
                         <input class="filterCheck" type="checkbox" id="midweek" checked>
                         <label for="midweek">Midweek</label>
                     </div>
@@ -65,34 +70,44 @@
                         <label for="multiday">Multi-day</label>
                     </div>
                 </div>
-            </div> <!-- End filterArea -->
+
+            </div>
+        </div> <!-- End filterArea -->
 
             <!-- Areas for meet details -->
             <div id="meetsArea">
+                <div>
+                    <script id="monthTemplate" type="template/Handlebars">
+                        <h2>{{currentMonth}}</h2>
+                    </script>
+                    <span id="monthTarget"></span>
+                </div>
                 <!-- meetBox template -->
-                <script id="meetsTemplate" type="template/Handlebars">
-                    {{meets meetsData}}
-                </script>
-                <span id="meetsTarget"></span>
+                <div>
+                    <script id="meetsTemplate" type="template/Handlebars">
+                        {{meets meetsData}}
+                    </script>
+                    <span id="meetsTarget"></span>
 
-<!--                <div class="meetBox">-->
-<!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
-<!--                    <h3>Saturday 27 March</h3>-->
-<!--                    <h3>The Roaches, the Peak District</h3>-->
-<!--                    <p>09:00 - 18:30</p>-->
-<!--                    <p>Details</p>-->
-<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-<!--                </div>-->
-<!--                <div class="meetBox">-->
-<!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
-<!--                    <h3>Wednesday 31 March</h3>-->
-<!--                    <h3>The Northwest Face, Warrington</h3>-->
-<!--                    <p>18:30 - 22:00</p>-->
-<!--                    <p>Details</p>-->
-<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-<!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-<!--                </div>-->
+    <!--                <div class="meetBox">-->
+    <!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
+    <!--                    <h3>Saturday 27 March</h3>-->
+    <!--                    <h3>The Roaches, the Peak District</h3>-->
+    <!--                    <p>09:00 - 18:30</p>-->
+    <!--                    <p>Details</p>-->
+    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+    <!--                </div>-->
+    <!--                <div class="meetBox">-->
+    <!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
+    <!--                    <h3>Wednesday 31 March</h3>-->
+    <!--                    <h3>The Northwest Face, Warrington</h3>-->
+    <!--                    <p>18:30 - 22:00</p>-->
+    <!--                    <p>Details</p>-->
+    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
+    <!--                </div>-->
+                </div>
             </div> <!-- End meetsArea -->
         </div> <!-- End mainContentWrapper -->
     </body>
