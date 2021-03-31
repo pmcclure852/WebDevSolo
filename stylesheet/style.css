@@ -26,6 +26,11 @@ div {
     /*border-style: dotted ;*/
 }
 
+html {
+    display: grid;
+    grid-template-columns: minmax(900px, 1300px);
+}
+
 .boxImage {
     box-shadow: 0 0 0 5px black, 15px 15px darkorange;
     margin: 0px 10px 10px 0px;
@@ -65,14 +70,12 @@ header li {
     font-size: 20px;
 }
 
-html {
-    display: grid;
-    grid-template-columns: minmax(900px, 1300px);
-}
-
 /* Body Section */
 #mainContentWrapper {
     padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(500px, 1fr);
 }
 
 #mainContent_topSection {
@@ -189,6 +192,8 @@ footer ul {
 
 footer li {
     display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
     /*padding-right: 100px;*/
 }
 

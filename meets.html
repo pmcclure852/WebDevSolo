@@ -48,7 +48,7 @@
                         <input class="filterCheck" type="checkbox" id="sport" checked>
                         <label for="sport">Sport</label>
                         <br>
-                        <input type="checkbox" id="trad" checked>
+                        <input class="filterCheck"type="checkbox" id="trad" checked>
                         <label for="trad">Trad</label>
                     </div>
                     <div>
@@ -71,12 +71,11 @@
                     </div>
                 </div>
 
-            </div>
-        </div> <!-- End filterArea -->
+            </div><!-- End filterArea -->
 
             <!-- Areas for meet details -->
             <div id="meetsArea">
-                <div>
+                <div id="meetsMonth">
                     <script id="monthTemplate" type="template/Handlebars">
                         <h2>{{currentMonth}}</h2>
                     </script>
@@ -114,13 +113,11 @@
 
     <!-- Footer -->
     <footer>
-        <div></div>
         <ul>
-            <li class="footerImage"><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>
+<!--            <li class="footerImage"><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>-->
             <li ><a href="mailto:contactus@wcc.co.uk" class="footerText">contactus@wcc.co.uk</a></li>
             <li ><a href="tel:+447772502185" class="footerText">tel: 07772 502 185</a></li>
         </ul>
-        <div></div>
     </footer>
     <script src="scripts/index.js"></script>
 </html>

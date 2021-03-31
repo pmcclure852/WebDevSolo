@@ -3,9 +3,10 @@
 #filterArea {
     display: grid;
     /*grid-template-columns: 120px auto  minmax(100px, 300px);*/
-    grid-template-columns: 120px minmax(450px, 600px) auto minmax(200px, 300px);
+    grid-template-columns: 120px minmax(460px, 600px) auto minmax(200px, 300px);
     grid-template-rows: 170px 100px ;
     grid-gap: 10px;
+    margin: 10px 40px;
 }
 
 #meetsIntro {
@@ -53,12 +54,21 @@
 /*    grid-column: span 4;*/
 /*}*/
 
-#meetsArea span{
+#meetsArea span {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
-    grid-gap: 10px;
-    margin-top: 50px;
+    grid-gap: 8px;
+    /*margin-top: 10px;*/
+}
+
+#meetsArea h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#meetsMonth {
+    grid-column: span 2;
 }
 
 .meetBox {
@@ -66,7 +76,6 @@
     border-radius: 10px;
     margin-bottom: 5px;
     padding: 10px;
-    margin-top: 20px;
 }
 
 .meetBox h3 {
@@ -75,10 +84,27 @@
 
 .meetBoxImage {
     float: right;
+    width: 200px;
+    height: 200px;
+    margin: 2px 5px 5px 4px;
+    box-shadow: 0 0 0 3px black, 8px 8px darkorange;
+}
+
+.meetPrice {
+    font-weight: bold;
 }
 
 .meetBoxIcon {
     margin-right: 5px;
+}
+
+.meetTags {
+    color: orange;
+    font-weight: bold;
+    box-shadow: 0 0 0 3px black;
+    background-color: black;
+    display: inline-block;
+    margin-top: 0;
 }
 
 .navArrow {

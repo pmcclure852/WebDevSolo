@@ -2,27 +2,26 @@
 // All meet data, in ascending date order with dates in ISO 8601 format: YYYY-MM-DD
 
 var allData = [
-    {header: "PAST bouldering at the Depot", details: "PAST evening of bouldering at the Depot, Manchester",
-        date: "2021-03-01", time: "18:00 - 22:00", tags: ["bouldering", "midweek"]},
-    {header: "Indoor climbing at the Depot", details: "An evening of bouldering at the Depot, Manchester",
-        date: "2021-03-05", time: "18:00 - 22:00", tags: ["sport", "midweek"]},
-    {header: "Trad climbing at the Roaches", details: "Trad climbing at the Roaches, the Peak District",
-        date: "2021-03-06", time: "10:00 - 18:00", tags: ["trad", "weekend"]},
-    {header: "Multi-pitch climbing at Idwal Slabs", details: "Trad climbing at Idwal Slabs, Ogwen Valley, North Wales",
-        date: "2021-03-27", time: "10:00 - 18:00", tags: ["trad", "weekend", "multipitch"]},
-    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-        date: "2021-03-31", time: "18:00 - 22:00", tags: ["bouldering", "midweek", "sport"]},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-03-31", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
     {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
-        date: "2021-04-03", time: "09:00 - 18:00", tags: ["trad", "weekend"]},
+        date: "2021-04-03", time: "09:00 - 18:00", image: "img/stanage.jpg", alt: "Picture of Stanage Edge rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
     {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-        date: "2021-04-07", time: "18:00 - 22:00", tags: ["sport", "bouldering", "midweek", "indoor"]}
-    // {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-    //     date: "2021-05-07", time: "18:00 - 22:00"},
-    // {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-    //     date: "2021-06-07", time: "18:00 - 22:00"},
-    // {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
-    //     date: "2021-07-07", time: "18:00 - 22:00"}
-];
+        date: "2021-04-07", time: "18:00 - 22:00", image: "img/northwestface.png",
+        alt: "Northwest Face climbing wall logo featuring a person climbing an overhang" ,
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at the Roaches", details: "Traditional climbing at the Roaches, the Peak District",
+        date: "2021-04-10", time: "09:00 - 18:00", image: "img/roaches.jpg", alt: "Picture of the Roaches rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+    {header: "Indoor bouldering at the depot", details: "An evening of bouldering at the Depot, Manchester",
+        date: "2021-04-14", time: "18:00 - 22:00", image: "img/depot.png", alt: "The Depot bouldering centre logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£9.00"},
+    {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
+        date: "2021-04-17", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"}
+]
 
 // Create arrays to display human friendly days and months
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -35,10 +34,16 @@ if (document.URL.includes("meets.html")){
 
     // Create date object for the meets template
     var now = new Date(Date.now());
-    var dispMonth = now.getMonth();
-    var curMonth = now.getMonth();
+    var dispMonth = now.getMonth();     // The month to display
+    var curMonth = now.getMonth();      // The current month in the real world
+
+    // Get the last month with data
+    var lastMonth = new Date(allData[allData.length-1].date); // The last month that has data
+    lastMonth = lastMonth.getMonth();
+
 
     // Create onclick event for filter checkboxes
+    // Makes the template reload
     var checkboxes = document.getElementsByClassName("filterCheck");
     for (var i=0; i<checkboxes.length; i++) {
         checkboxes[i].onclick = function () {
@@ -50,19 +55,24 @@ if (document.URL.includes("meets.html")){
     // Handle end of data
     var endOfNav = false;
 
-    // Create onclick events for month navigation
+    // Click left arrow
     document.getElementById("monthBack").onclick = function () {
         if (dispMonth > curMonth) {
             dispMonth -= 1;
             renderMeets(dispMonth);
-            endOfNav = false;
+            // endOfNav = false;
         }
     }
-
+    // Click right arrow
     document.getElementById("monthForward").onclick = function () {
-        if (!endOfNav) {
+        // if (!endOfNav) {
+        //     dispMonth += 1;
+        //     renderMeets(dispMonth);
+        // }
+        // Do nothing if at the end of the data
+        if (dispMonth <= lastMonth) {
             dispMonth += 1;
-            renderMeets(dispMonth);
+                renderMeets(dispMonth);
         }
     }
 
@@ -110,7 +120,8 @@ function renderMeets(month) {
         // Get the month of the meet
         var meetDate = new Date(Date.parse(allData[i].date));
         // Check meet matches the month we want
-        if (meetDate.getMonth() === month && meetDate.getDate() >= now.getDate()) {
+
+        if (meetDate.getMonth() === month && meetDate >= now) {
             // Loop the tags to check for day type match
 
             for (var j=0; j<allData[i].tags.length; j++) {
@@ -147,8 +158,7 @@ function renderMeets(month) {
         }
     }
 
-    //TODO: ARRRRGGGGGHHHHHHHH WHAT IF IT'S EMPTY BECAUSE FILTERED OUT!?
-
+    // Check if there is any data to fill the template
     if (templateData.length >= 1) {
         // Create meets template
         var meetsTemplate = document.getElementById("meetsTemplate").innerHTML;
@@ -162,16 +172,20 @@ function renderMeets(month) {
                 var meetDateParsed = new Date(meetsData[i].date);
                 output +=
                     "<div class='meetBox'>" +
-                        "<img class='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
+                        "<img class='meetBoxImage' src='" + Handlebars.Utils.escapeExpression(meetsData[i].image) +
+                        "' alt='" + Handlebars.Utils.escapeExpression(meetsData[i].alt) + "'>" +
                         "<h3>" + days[meetDateParsed.getDay()] + " " + meetDateParsed.getDate() + " " +
                         months[meetDateParsed.getMonth()] + " " + meetDateParsed.getFullYear() + "</h3>" +
                         "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
                         "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].time) + "</p>" +
                         "<p>" + Handlebars.Utils.escapeExpression(meetsData[i].details) + "</p>" +
-                        "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>" +
-                        "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>"
-                output += "</div>";
-
+                        "<p class='meetPrice'>" + Handlebars.Utils.escapeExpression(meetsData[i].price) + "</p>" +
+                        "<p class='meetTags'>| ";
+                //Loop to add tags
+                for (var j=0; j<meetsData[i].tags.length; j++) {
+                    output += Handlebars.Utils.escapeExpression(meetsData[i].tags[j]).toUpperCase() + " | ";
+                }
+                output += "</p></div>";
             }
             return new Handlebars.SafeString(output);
         })
@@ -179,34 +193,58 @@ function renderMeets(month) {
         var rendMeetsTemplate = compMeetsTemplate(meetsData);
         document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
     }
-    else {
+
+    // If past the end of the data
+    else if (dispMonth > lastMonth) {
         var meetsTemplate = document.getElementById("meetsTemplate").innerHTML;
         var compMeetsTemplate = Handlebars.compile(meetsTemplate);
 
         Handlebars.registerHelper("meets", function () {
             return new Handlebars.SafeString(
                 "<div class='meetBox'>" +
-                    "<img class='meetBoxImage' src='img/ph_150.jpg' alt='a photo of the Roaches'>" +
-                    "<h3>Sorry!</h3>" +
-                    // "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
-                    "<p>We've not got meetings arranged that far ahead.</p>" +
-                    "<p>Check back soon :)</p>" +
-                    "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>" +
-                    "<img class='meetBoxIcon' src='img/30x30.png' alt='climbing type icon'>" +
+                "<img class='meetBoxImage' src='img/nomeets.jpg' alt='a photo of a stuck mountain goat'>" +
+                "<h3>Sorry!</h3>" +
+                // "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
+                "<p>We've not got meetings arranged that far ahead.</p>" +
+                "<p>Check back soon :)</p>" +
                 "</div>"
             )
         })
 
         var rendMeetsTemplate = compMeetsTemplate();
         document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
-        endOfNav = true;
+        // endOfNav = true;
     }
+
+    // Check if more checkboxes might help
+    else if (dayTypeChecked.length + climbTypeChecked.length < 7) {
+        var meetsTemplate = document.getElementById("meetsTemplate").innerHTML;
+        var compMeetsTemplate = Handlebars.compile(meetsTemplate);
+
+        Handlebars.registerHelper("meets", function () {
+            return new Handlebars.SafeString(
+                "<div class='meetBox'>" +
+                "<img class='meetBoxImage' src='img/options.png' alt='a photo of a huge climbing rack'>" +
+                "<h3>No meets match your criteria...</h3>" +
+                // "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
+                "<p>Perhaps try selecting a few more options.</p>" +
+                // "<p>Check back soon :)</p>" +
+                "</div>"
+            )
+        })
+
+        var rendMeetsTemplate = compMeetsTemplate();
+        document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
+        // endOfNav = true;
+    }
+
+    // Try the next month
+    else if (dispMonth < lastMonth) {
+        dispMonth += 1;
+        renderMeets(dispMonth);
+    }
+
 }
-
-
-
-
-
 
 // Code for sidebar on index.html. only run if on home page!
 if (document.URL.includes("index.html")) {
