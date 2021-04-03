@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hut</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>WCC - The Hut</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet/hut.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    </head>
+    <!-- Header section containing the logo and the nav bar -->
+    <header>
+        <!-- Logo made from text, probably imported font, links back to home page -->
+        <div id="logo"><a href="index.html">WCC</a></div>
 
-</body>
+        <!-- Nav bar -->
+        <ul style="justify-self: end; align-self: end">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="meets.html">Meets</a></li>
+            <li><a href="hut.html">Hut</a></li>
+            <li><a href="areas.html">Climbing Areas</a></li>
+            <li><a href="info.html">Club Info</a></li>
+        </ul>
+    </header>
+
+    <body>
+        <div id="mainContentWrapper">
+            <div id="hutIntro">
+
+                <h1>The Hut</h1>
+                <img id="hutIntroImg" src="img/hut.jpg" alt="photo of the stone hut next to mountain"/>
+
+                <div>
+                    <h2>We all love the hut!</h2>
+                    <p>Situated ideally at the heart of Ogwen Valley, with views of Tryfan, our hut is a perfect base camp
+                        for climbing anywhere in North Wales but especially the exceptional climbing of the Ogwen Valley
+                        and Llanberis Pass.</p>
+                    <p>Snowden is also easily in reach and a little further out are the legendary sea cliffs of Gogarth.</p>
+                    <p>It has 13 beds and a fully equipped kitchen for you to use. You can book as many or as few
+                        beds as you need.</p>
+                    <p>And if you need some motivation for a big day out in the mountains, you can be assured someone
+                        has slept under that roof that's been there and done it all before. The hut was used back in the
+                        1920's for the early ascents in the area and also as a training base for the 1953 Everest
+                        expedition.</p>
+                </div>
+            </div>
+        </div>  <!-- End mainContentWrapper -->
+    </body>
+
+    <footer>
+        <ul>
+            <!-- <li class="footerImage"><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>-->
+            <li><a href="mailto:contactus@wcc.co.uk" class="footerText">contactus@wcc.co.uk</a></li>
+            <li><a href="tel:+447772502185" class="footerText">tel: 07772 502 185</a></li>
+        </ul>
+    </footer>
 </html>
