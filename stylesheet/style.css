@@ -117,7 +117,6 @@ header li {
 }
 .carouselImg {
     width: 100%;
-
 }
 
 /* Side-bar section */
@@ -207,4 +206,17 @@ footer img {
 
 .footerText {
     /*margin-top: 20px;*/
+}
+
+.navArrow {
+    font-size: 60px;
+    font-weight: bold;
+    color: orange;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-right: 20px;
+}
+
+.navArrow:hover {
+    color: black;
 }

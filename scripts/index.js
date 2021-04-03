@@ -52,8 +52,6 @@ if (document.URL.includes("meets.html")){
     }
 
     // Month navigation
-    // Handle end of data
-    var endOfNav = false;
 
     // Click left arrow
     document.getElementById("monthBack").onclick = function () {
@@ -65,10 +63,6 @@ if (document.URL.includes("meets.html")){
     }
     // Click right arrow
     document.getElementById("monthForward").onclick = function () {
-        // if (!endOfNav) {
-        //     dispMonth += 1;
-        //     renderMeets(dispMonth);
-        // }
         // Do nothing if at the end of the data
         if (dispMonth <= lastMonth) {
             dispMonth += 1;

@@ -1,6 +1,6 @@
 
 #hutIntro {
-    /*margin: 10px 40px;*/
+    margin: 10px 40px;
     display: grid;
     grid-template-columns: minmax(500px, 3fr) 1fr;
     grid-gap: 10px;
@@ -8,10 +8,43 @@
 
 #hutIntroImg {
     width: 100%;
-    grid-
 }
 
 #hutIntro h1 {
     grid-column: span 2;
 }
 
+#hutDesc {
+    padding-left: 30px;
+}
+
+#hutCalendar {
+    display: grid;
+    grid-template-columns: min-content min-content min-content min-content min-content min-content min-content;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.calCell {
+    width: 100px;
+    height: 100px;
+    border: 2px black solid;
+    padding-left: 8px;
+    padding-top: 3px;
+}
+
+#calMonth {
+    margin-left: 40px;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+/*.navArrow {*/
+/*    font-size: 60px;*/
+/*    font-weight: bold;*/
+/*    color: orange;*/
+/*    cursor: pointer;*/
+/*    text-decoration: underline;*/
+/*    margin-right: 20px; display: inline;*/
+/*}*/

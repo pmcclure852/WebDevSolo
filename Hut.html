@@ -25,11 +25,9 @@
     <body>
         <div id="mainContentWrapper">
             <div id="hutIntro">
-
                 <h1>The Hut</h1>
-                <img id="hutIntroImg" src="img/hut.jpg" alt="photo of the stone hut next to mountain"/>
-
-                <div>
+                <img class="boxImage" id="hutIntroImg" src="img/hut.jpg" alt="photo of the stone hut next to mountain"/>
+                <div id="hutDesc">
                     <h2>We all love the hut!</h2>
                     <p>Situated ideally at the heart of Ogwen Valley, with views of Tryfan, our hut is a perfect base camp
                         for climbing anywhere in North Wales but especially the exceptional climbing of the Ogwen Valley
@@ -42,7 +40,30 @@
                         1920's for the early ascents in the area and also as a training base for the 1953 Everest
                         expedition.</p>
                 </div>
+                <div>
+                    <h2>Availability</h2>
+                    <p>Here you can see the current availability for the hut - green means there's room available and
+                        red means it's fully booked for that date!</p>
+                    <span id="monthBack" class="navArrow"><</span>
+                    <span id="monthForward" class="navArrow">></span>
+                    <h2 id="calMonth"></h2>
+                </div>
             </div>
+
+            <div id="hutCalendar">
+                <div id="1" class="calCell"></div><div id="2" class="calCell"></div><div id="3" class="calCell"></div>
+                <div id="4" class="calCell"></div><div id="5" class="calCell"></div><div id="6" class="calCell"></div>
+                <div id="7" class="calCell"></div><div id="8" class="calCell"></div><div id="9" class="calCell"></div>
+                <div id="10" class="calCell"></div><div id="11" class="calCell"></div><div id="12" class="calCell"></div>
+                <div id="13" class="calCell"></div><div id="14" class="calCell"></div><div id="15" class="calCell"></div>
+                <div id="16" class="calCell"></div><div id="17" class="calCell"></div><div id="18" class="calCell"></div>
+                <div id="19" class="calCell"></div><div id="20" class="calCell"></div><div id="21" class="calCell"></div>
+                <div id="22" class="calCell"></div><div id="23" class="calCell"></div><div id="24" class="calCell"></div>
+                <div id="25" class="calCell"></div><div id="26" class="calCell"></div><div id="27" class="calCell"></div>
+                <div id="28" class="calCell"></div><div id="29" class="calCell"></div><div id="30" class="calCell"></div>
+                <div id="31" class="calCell"></div><div id="32" class="calCell"></div><div id="33" class="calCell"></div>
+                <div id="34" class="calCell"></div><div id="35" class="calCell"></div>
+        </div>
         </div>  <!-- End mainContentWrapper -->
     </body>
 
@@ -53,4 +74,5 @@
             <li><a href="tel:+447772502185" class="footerText">tel: 07772 502 185</a></li>
         </ul>
     </footer>
+    <script src="scripts/hut.js"></script>
 </html>
