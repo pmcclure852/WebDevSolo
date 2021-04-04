@@ -36,6 +36,11 @@ html {
     margin: 0px 10px 10px 0px;
 }
 
+.boxImageGreen {
+    box-shadow: 0 0 0 5px black, 15px 15px limegreen;
+    margin: 0px 10px 10px 0px;
+}
+
 /* Header Section */
 header {
     display: grid;
@@ -211,7 +216,7 @@ footer img {
 .navArrow {
     font-size: 60px;
     font-weight: bold;
-    color: orange;
+    color: darkorange;
     cursor: pointer;
     text-decoration: underline;
     margin-right: 20px;
