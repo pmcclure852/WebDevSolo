@@ -1,13 +1,17 @@
 
 #hutIntro {
     margin: 10px 40px;
-    display: grid;
-    grid-template-columns: minmax(500px, 3fr) 1fr;
-    grid-gap: 10px;
+    /*display: grid;*/
+    /*grid-template-columns: minmax(500px, 3fr) 1fr;*/
+    /*grid-template-columns: 1fr;*/
+    /*grid-gap: 10px;*/
 }
 
 #hutIntroImg {
-    width: 100%;
+    width: 70%;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 30px;
 }
 
 #hutIntro h1 {
@@ -18,11 +22,15 @@
     padding-left: 30px;
 }
 
+#availNav h2 {
+    margin-top: 30px;
+}
+
 #hutCalendar {
     display: grid;
     grid-template-columns: min-content min-content min-content min-content min-content min-content min-content;
     /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
-    margin-top: 20px;
+    margin-top: 10px;
     justify-content: center;
 }
 
