@@ -1,10 +1,16 @@
 
+/* Info page specific CSS styling */
+
 h1 {
     margin-left: 40px;
 }
 
+/* Membership area */
 #infoArea {
     margin: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 20px;
 }
 
 #membText {
@@ -18,6 +24,7 @@ h1 {
     margin-top: 5px;
 }
 
+/* Address area */
 #addressImg {
     width: 300px;
     height: 200px;
@@ -48,12 +55,7 @@ h1 {
     font-weight: bold;
 }
 
-#infoArea {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-row-gap: 20px;
-}
-
+/* Board members area */
 #boardArea {
     grid-column: span 3;
     display: grid;

@@ -1,19 +1,23 @@
 // Script for hut.html
 
+// Get callendar cells
 var calCells = document.getElementsByClassName("calCell");
 
+// Create variables for date comparisons
 var now = new Date(Date.now());
-
 var dispYear = now.getFullYear(); // Year to display
 var curYear = now.getFullYear(); // The current year in the real world
 var dispMonth = now.getMonth(); // Month to display
 var curMonth = now.getMonth(); // The current month in the real world
 
-
+// Create month labels
 var monthsFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
     "November", "December"];
-var monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] // will need updating for leap years in 2024 :/
 
+// Create array with number days of in the month
+var monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+// Create array with entries for which days are booked up
 var booked = [
     {
         year: 2021,
@@ -50,17 +54,15 @@ var booked = [
     }
 ];
 
+// Create variables for the end of the dataset
 var lastYear = booked[booked.length - 1].year;
-
 var lastMonth = booked[booked.length - 1].months.length - 1;
 
-
-
+// Call renderCalendar
 renderCalendar();
 
 
 // Month navigation
-
 // Click left arrow
 document.getElementById("monthBack").onclick = function () {
     // Do nothing if at the current month

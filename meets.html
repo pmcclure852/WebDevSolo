@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>WCC - Meets</title>
+        <title id="title">WCC - Meets</title>
         <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
         <link rel="stylesheet" type="text/css" href="stylesheet/meets.css">
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
@@ -10,9 +10,8 @@
 
     <!-- Header section containing the logo and the nav bar -->
     <header>
-        <!-- Logo made from text, probably imported font, links back to home page -->
+        <!-- Simple text logo -->
         <div id="logo"><a href="index.html">WCC</a></div>
-
         <!-- Nav bar -->
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -43,7 +42,8 @@
                     <span id="monthForward" class="navArrow">></span>
                 </div>
 
-                <div id="filterBox" style="float: right">
+                <!-- Check boxes to filter results -->
+                <div id="filterBox">
                     <div>
                         <input class="filterCheck" type="checkbox" id="sport" checked>
                         <label for="sport">Sport</label>
@@ -70,10 +70,9 @@
                         <label for="multiday">Multi-day</label>
                     </div>
                 </div>
-
             </div><!-- End filterArea -->
 
-            <!-- Areas for meet details -->
+            <!-- Areas for meet details, handlebars template -->
             <div id="meetsArea">
                 <div id="meetsMonth">
                     <script id="monthTemplate" type="template/Handlebars">
@@ -87,25 +86,6 @@
                         {{meets meetsData}}
                     </script>
                     <span id="meetsTarget"></span>
-
-    <!--                <div class="meetBox">-->
-    <!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
-    <!--                    <h3>Saturday 27 March</h3>-->
-    <!--                    <h3>The Roaches, the Peak District</h3>-->
-    <!--                    <p>09:00 - 18:30</p>-->
-    <!--                    <p>Details</p>-->
-    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-    <!--                </div>-->
-    <!--                <div class="meetBox">-->
-    <!--                    <img class="meetBoxImage" src="img/ph_150.jpg" alt="a photo of the Roaches">-->
-    <!--                    <h3>Wednesday 31 March</h3>-->
-    <!--                    <h3>The Northwest Face, Warrington</h3>-->
-    <!--                    <p>18:30 - 22:00</p>-->
-    <!--                    <p>Details</p>-->
-    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-    <!--                    <img src="img/30x30.png" alt="climbing type icon">-->
-    <!--                </div>-->
                 </div>
             </div> <!-- End meetsArea -->
         </div> <!-- End mainContentWrapper -->
@@ -114,7 +94,6 @@
     <!-- Footer -->
     <footer>
         <ul>
-<!--            <li class="footerImage"><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>-->
             <li ><a href="mailto:contactus@wcc.co.uk" class="footerText">contactus@wcc.co.uk</a></li>
             <li ><a href="tel:+447772502185" class="footerText">tel: 07772 502 185</a></li>
         </ul>

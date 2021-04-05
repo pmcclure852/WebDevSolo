@@ -2,16 +2,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>WCC - Home</title>
+        <title id="title">WCC - Home</title>
         <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+        <!-- Handlebars template engine from CDN -->
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     </head>
 
     <!-- Header section containing the logo and the nav bar -->
     <header>
-        <!-- Logo made from text, probably imported font, links back to home page -->
+        <!-- Simple text logo -->
         <div id="logo"><a href="index.html">WCC</a></div>
-
         <!-- Nav bar -->
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -28,49 +28,25 @@
             <div id="mainContent_topSection">
                 <div id="mainHeader">
                     <h1>Welcome to Warrington Climbers Club</h1>
-                    <!-- Image carousel -->
-                    <div class="imageWrapper" id="carousel">
-                        <img class="boxImage carouselImg" src="img/roadside.jpg" alt="Carousel of images of people rock climbing"/>
+                    <div class="imageWrapper" id="mainImgWrapper">
+                        <img id="mainImg" class="boxImage" src="img/roadside.jpg" alt="Photo off a man rock climbing"/>
                     </div>
                     <p>Situated ideally between North Wales, the Peak District and the Lake District, we have a very active
                         club with lots of climbing options all around us.</p>
                     <p>Come along to a <a href="meets.html">meet</a> as a guest and get to know us!</p>
 
                 </div>
-
+                <!-- Sidebar, handlebars template -->
                 <div id="sideBar">
-                    <!-- TODO - add links to the events on the meets page somehow -->
-                    <!-- TODO - add links to the venue's pages or maybe create my own? On the areas page with prices etc? -->
-                    <!-- TODO - make it work by having all the data then auto selecting based on system/web date etc -->
                     <h2>Upcoming Meets</h2>
-<!--                    <script id="sideBarTemplate1" type="template/Handlebars">-->
-<!--                        <div id="meet1">-->
-<!--                            <h3>{{sideBarHeader}}</h3>-->
-<!--                            <p>{{sideBarDetails}}</p>-->
-<!--                        </div>-->
-<!--                    </script>-->
-<!--                    <span id="template1Target"></span>-->
                     <script id="sideBarTemplate2" type="template/Handlebars">
                         {{meetingsList listItems}}
                     </script>
                     <span id="template2Target"></span>
-<!--                    <div id="meet2">-->
-<!--                        <h3>Trad climbing at Stanage Edge</h3>-->
-<!--                        <p>9am-6pm at Stanage Edge, the Peak District</p>-->
-<!--                    </div>-->
-<!--                    <div id="meet3">-->
-<!--                        <h3>Indoor bouldering at the Depot</h3>-->
-<!--                        <p>6-10pm at the Depot, Manchester</p>-->
-<!--                    </div>-->
-<!--                    <div id="meet4">-->
-<!--                        <h3>Trad climbing and bouldering at the Roaches</h3>-->
-<!--                        <p>9am-6pm at the Roaches, the Peak District</p>-->
-<!--                    </div>-->
                     <div id="meetsButton">
                         <a href="meets.html">View all meets</a>
                     </div>
                 </div>
-
             </div> <!-- end mainContent_topSection -->
 
             <div id="mainContent_bottomSection">
@@ -105,7 +81,6 @@
     <!-- Footer -->
     <footer>
         <ul>
-            <!--            <li class="footerImage"><a href="http://facebook.com"><img src="img/facebook.png" height="50" width="50" alt="facebook" /></a></li>-->
             <li ><a href="mailto:contactus@wcc.co.uk" class="footerText">contactus@wcc.co.uk</a></li>
             <li ><a href="tel:+447772502185" class="footerText">tel: 07772 502 185</a></li>
         </ul>

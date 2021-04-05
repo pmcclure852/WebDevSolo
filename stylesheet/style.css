@@ -1,4 +1,6 @@
 
+/* Stylesheet for common items to all pages and specific items for index.html */
+
 /* remove sidebar when viewport < 1000 */
 @media screen and (max-width: 1000px) {
     #sideBar {
@@ -26,6 +28,7 @@ html {
     grid-template-columns: minmax(900px, 1300px);
 }
 
+/* Add border and coloured shadow to images*/
 .boxImage {
     box-shadow: 0 0 0 5px black, 15px 15px darkorange;
     margin: 0px 10px 10px 0px;
@@ -83,7 +86,7 @@ header li {
     display: grid;
     grid-template-columns: minmax(100px, 1fr) 300px;
     grid-gap: 10px;
-    border: none;                           /* todo: remove when not highlighting divs */
+    border: none;
     margin-bottom: 50px;
 }
 
@@ -91,7 +94,7 @@ header li {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
-    border: none;                           /* todo: remove when not highlighting divs */
+    border: none;
     padding: 0px 50px;
 }
 
@@ -113,10 +116,10 @@ header li {
     text-align: center;
 }
 
-#carousel {
+#mainImgWrapper {
     margin-right: 15px;
 }
-.carouselImg {
+#mainImg {
     width: 100%;
 }
 
@@ -128,7 +131,6 @@ header li {
     padding: 10px;
     margin: 10px 0px 10px 10px;
     box-shadow: 0 0 0 5px black, 15px 15px limegreen;
-    /*display: none;*/
 }
 
 #sideBar div {
@@ -168,6 +170,9 @@ header li {
 }
 
 #sideBar #meetsButton:hover {
+    background-color: white;
+
+}#sideBar #meetsButton {
     background-color: limegreen;
 }
 
@@ -187,14 +192,12 @@ footer {
 
 footer ul {
     list-style: none;
-    /*text-align: center;    */
 }
 
 footer li {
     display: inline-block;
     padding-left: 20px;
     padding-right: 20px;
-    /*padding-right: 100px;*/
 }
 
 footer a {
@@ -205,10 +208,7 @@ footer img {
     box-shadow: none;
 }
 
-.footerText {
-    /*margin-top: 20px;*/
-}
-
+/* Navigation arrows */
 .navArrow {
     font-size: 60px;
     font-weight: bold;

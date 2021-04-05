@@ -1,39 +1,18 @@
 
 /* Meets page specific CSS styling */
+
+/* Filter area */
 #filterArea {
     display: grid;
-    /*grid-template-columns: 120px auto  minmax(100px, 300px);*/
     grid-template-columns: 120px minmax(460px, 600px) auto minmax(200px, 300px);
     grid-template-rows: 170px 100px ;
     grid-gap: 10px;
     margin: 10px 40px;
 }
 
-#meetsIntro {
-    grid-column: span 3;
-}
-
-#meetsIntroImage {
-    justify-self: center;
-    align-self: center;
-    grid-row: 1 / span 2;
-    /*grid-row: span 2;*/
-    grid-column: 4;
-    width: 90%;
-    margin-top: 10px;
-}
-
 #filterArea h2 {
     margin-bottom: 0;
 }
-
-/*#filterArea :nth-child(1) {*/
-/*    row-span: 2;*/
-/*}*/
-
-/*#filterArea :nth-child(4) {*/
-/*    justify-self: end;*/
-/*}*/
 
 #filterBox {
     display: grid;
@@ -49,17 +28,26 @@
     grid-column: 2;
 }
 
-/*#meetsArea {*/
-/*    grid-row: 3;*/
-/*    grid-column: span 4;*/
-/*}*/
+/* Meets Area */
+
+#meetsIntro {
+    grid-column: span 3;
+}
+
+#meetsIntroImage {
+    justify-self: center;
+    align-self: center;
+    grid-row: 1 / span 2;
+    grid-column: 4;
+    width: 90%;
+    margin-top: 10px;
+}
 
 #meetsArea span {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
     grid-gap: 8px;
-    /*margin-top: 10px;*/
 }
 
 #meetsArea h2 {
@@ -107,6 +95,7 @@
     margin-top: 0;
 }
 
+/* Navigation */
 .navArrow {
     font-size: 60px;
     font-weight: bold;

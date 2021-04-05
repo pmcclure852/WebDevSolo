@@ -1,6 +1,6 @@
+// Script for index.html and meets.html
 
 // All meet data, in ascending date order with dates in ISO 8601 format: YYYY-MM-DD
-
 var allData = [
     {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
         date: "2021-03-31", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
@@ -30,7 +30,7 @@ var monthsFull = ["January", "February", "March", "April", "May", "June", "July"
     "November", "December"]
 
 // Code for meet items on meets page
-if (document.URL.includes("meets.html")){
+if (document.getElementById("title").innerHTML === "WCC - Meets"){
 
     // Create date object for the meets template
     var now = new Date(Date.now());
@@ -40,7 +40,6 @@ if (document.URL.includes("meets.html")){
     // Get the last month with data
     var lastMonth = new Date(allData[allData.length-1].date); // The last month that has data
     lastMonth = lastMonth.getMonth();
-
 
     // Create onclick event for filter checkboxes
     // Makes the template reload
@@ -52,7 +51,6 @@ if (document.URL.includes("meets.html")){
     }
 
     // Month navigation
-
     // Click left arrow
     document.getElementById("monthBack").onclick = function () {
         if (dispMonth > curMonth) {
@@ -70,6 +68,7 @@ if (document.URL.includes("meets.html")){
         }
     }
 
+    // Render the meets
     renderMeets(dispMonth);
 }
 
@@ -241,11 +240,10 @@ function renderMeets(month) {
 }
 
 // Code for sidebar on index.html. only run if on home page!
-if (document.URL.includes("index.html")) {
+if (document.getElementById("title").innerHTML === "WCC - Home") {
 
     var sidebarData = [];
-// Loop the data and create array of the next 4 meets
-// TODO: What if allData if not in date order!?
+    // Loop the data and create array of the next 4 meets
     for (var i = 0; i < allData.length; i++) {
         if (Date.parse(allData[i].date) > Date.now()) {
 
@@ -260,13 +258,11 @@ if (document.URL.includes("index.html")) {
         }
     }
 
-// Add array to object for the sidebar template
+    // Add array to object for the sidebar template
     var data = {listItems: sidebarData}
 
-// Create and render sidebar template, looping through data object
-// Escape data to prevent code input causing errors and return safe string
-// TODO: links to meet items on meets page?
-
+    // Create and render sidebar template, looping through data object
+    // Escape data to prevent code input causing errors and return safe string
     var template2 = document.getElementById("sideBarTemplate2").innerHTML;
     var compiledTemp2 = Handlebars.compile(template2);
 

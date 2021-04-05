@@ -1,3 +1,4 @@
+// Script for areas.html
 
 // Declare variables for areas
 var lakesAreaHeader;
@@ -49,8 +50,8 @@ var peaksPos = 0;
 
 // Function to change displayed area
 function changeArea(area, direction) {
-    console.log(area + " " + direction);
 
+    // Check direction and area and call renderArea function
     if (direction === "forward") {
         if (area === "lakes") {
             if (lakesPos === 2) {
@@ -121,6 +122,7 @@ function changeArea(area, direction) {
 
 // Function to update the content for the area
 function renderArea(area) {
+    // Check area to update and position. Update HTML content.
     if (area === "lakes"){
         if (lakesPos === 0) {
             lakesAreaHeader = "Borrowdale";
