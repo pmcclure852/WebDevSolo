@@ -17,10 +17,112 @@ var allData = [
         tags: ["weekend", "bouldering", "trad"], price: "FREE"},
     {header: "Indoor bouldering at the depot", details: "An evening of bouldering at the Depot, Manchester",
         date: "2021-04-14", time: "18:00 - 22:00", image: "img/depot.png", alt: "The Depot bouldering centre logo",
-        tags: ["midweek", "bouldering", "sport"], price: "£9.00"},
+        tags: ["midweek", "bouldering"], price: "£9.00"},
     {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
         date: "2021-04-17", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
-        tags: ["weekend", "bouldering", "trad"], price: "FREE"}
+        tags: ["weekend", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-04-21", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
+        date: "2021-04-24", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
+        tags: ["weekend", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-04-28", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+
+    {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
+        date: "2021-05-01", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
+        tags: ["weekend", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-05-05", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at the Roaches", details: "Traditional climbing at the Roaches, the Peak District",
+        date: "2021-05-08", time: "09:00 - 18:00", image: "img/roaches.jpg", alt: "Picture of the Roaches rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-05-12", time: "18:00 - 22:00", image: "img/northwestface.png",
+        alt: "Northwest Face climbing wall logo featuring a person climbing an overhang" ,
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
+        date: "2021-05-15", time: "09:00 - 18:00", image: "img/stanage.jpg", alt: "Picture of Stanage Edge rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+    {header: "Indoor bouldering at the depot", details: "An evening of bouldering at the Depot, Manchester",
+        date: "2021-05-19", time: "18:00 - 22:00", image: "img/depot.png", alt: "The Depot bouldering centre logo",
+        tags: ["midweek", "bouldering"], price: "£9.00"},
+    {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
+        date: "2021-05-22", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
+        tags: ["weekend", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-05-26", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at the Roaches", details: "Traditional climbing at the Roaches, the Peak District",
+        date: "2021-05-29", time: "09:00 - 18:00", image: "img/roaches.jpg", alt: "Picture of the Roaches rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+
+    {header: "Indoor bouldering at the depot", details: "An evening of bouldering at the Depot, Manchester",
+        date: "2021-06-03", time: "18:00 - 22:00", image: "img/depot.png", alt: "The Depot bouldering centre logo",
+        tags: ["midweek", "bouldering"], price: "£9.00"},
+    {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
+        date: "2021-06-05", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
+        tags: ["weekend", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-06-09", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at the Roaches", details: "Traditional climbing at the Roaches, the Peak District",
+        date: "2021-06-12", time: "09:00 - 18:00", image: "img/roaches.jpg", alt: "Picture of the Roaches rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-06-16", time: "18:00 - 22:00", image: "img/northwestface.png",
+        alt: "Northwest Face climbing wall logo featuring a person climbing an overhang" ,
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
+        date: "2021-06-19", time: "09:00 - 18:00", image: "img/stanage.jpg", alt: "Picture of Stanage Edge rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+    {header: "Indoor bouldering at the depot", details: "An evening of bouldering at the Depot, Manchester",
+        date: "2021-06-22", time: "18:00 - 22:00", image: "img/depot.png", alt: "The Depot bouldering centre logo",
+        tags: ["midweek", "bouldering"], price: "£9.00"},
+    {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
+        date: "2021-06-26", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
+        tags: ["weekend", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-06-30", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+
+    {header: "Trad climbing at the Roaches", details: "Traditional climbing at the Roaches, the Peak District",
+        date: "2021-07-03", time: "09:00 - 18:00", image: "img/roaches.jpg", alt: "Picture of the Roaches rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-07-24", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
+        date: "2021-07-28", time: "09:00 - 18:00", image: "img/stanage.jpg", alt: "Picture of Stanage Edge rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+
+    {header: "Indoor climbing at the Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-08-11", time: "18:00 - 22:00", image: "img/northwestface.png",
+        alt: "Northwest Face climbing wall logo featuring a person climbing an overhang" ,
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at the Roaches", details: "Traditional climbing at the Roaches, the Peak District",
+        date: "2021-08-21", time: "09:00 - 18:00", image: "img/roaches.jpg", alt: "Picture of the Roaches rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+    {header: "Indoor bouldering at the depot", details: "An evening of bouldering at the Depot, Manchester",
+        date: "2021-08-25", time: "18:00 - 22:00", image: "img/depot.png", alt: "The Depot bouldering centre logo",
+        tags: ["midweek", "bouldering"], price: "£9.00"},
+
+    {header: "Traditional climbing at Llanberis Pass", details: "Traditional climbing at Llanberis Pass, North Wales",
+        date: "2021-09-18", time: "18:00 - 22:00", image: "img/llanberis.jpg", alt: "Picture of Llanberis pass rocks",
+        tags: ["weekend", "trad"], price: "FREE"},
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-09-22", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"},
+    {header: "Trad climbing at Stanage Edge", details: "Traditional climbing at Stanage Edge, the Peak District",
+        date: "2021-09-25", time: "09:00 - 18:00", image: "img/stanage.jpg", alt: "Picture of Stanage Edge rocks",
+        tags: ["weekend", "bouldering", "trad"], price: "FREE"},
+
+    {header: "Indoor climbing at Northwest Face", details: "An evening of sport climbing at the Northwest Face, Warrington",
+        date: "2021-10-11", time: "18:00 - 22:00", image: "img/northwestface.png", alt: "Northwest Face climbing wall logo",
+        tags: ["midweek", "bouldering", "sport"], price: "£8.00"}
 ]
 
 // Create arrays to display human friendly days and months
@@ -197,7 +299,6 @@ function renderMeets(month) {
                 "<div class='meetBox'>" +
                 "<img class='meetBoxImage' src='img/nomeets.jpg' alt='a photo of a stuck mountain goat'>" +
                 "<h3>Sorry!</h3>" +
-                // "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
                 "<p>We've not got meetings arranged that far ahead.</p>" +
                 "<p>Check back soon :)</p>" +
                 "</div>"
@@ -206,7 +307,6 @@ function renderMeets(month) {
 
         var rendMeetsTemplate = compMeetsTemplate();
         document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
-        // endOfNav = true;
     }
 
     // Check if more checkboxes might help
@@ -219,16 +319,13 @@ function renderMeets(month) {
                 "<div class='meetBox'>" +
                 "<img class='meetBoxImage' src='img/options.png' alt='a photo of a huge climbing rack'>" +
                 "<h3>No meets match your criteria...</h3>" +
-                // "<h3>" + Handlebars.Utils.escapeExpression(meetsData[i].header) + "</h3>" +
                 "<p>Perhaps try selecting a few more options.</p>" +
-                // "<p>Check back soon :)</p>" +
                 "</div>"
             )
         })
 
         var rendMeetsTemplate = compMeetsTemplate();
         document.getElementById("meetsTarget").innerHTML = rendMeetsTemplate;
-        // endOfNav = true;
     }
 
     // Try the next month

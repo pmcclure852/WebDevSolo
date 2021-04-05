@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+<h1>Report: Large Coursework</h1>
+<h1>Philip John McClure</h1>
+
+<h3>Introduction</h3>
+<p>My website is for a fictitious local climbing club in my home town of Warrington. It's purpose is to let potential
+new members know about the club give existing members up to date information about meets and hut availability.</p>
+<p>I chose a simple structure with a single tier of navigation as I felt that was all that was required for such
+a straightforward site. This makes navigation quick and easy for the user as every navigation option is available
+immediately at the top of every page.</p>
+
+
+<h3>State 3 things that have inspired you when creating your website</h3>
+<ul>
+    <li>My love of rock climbing - I have been climbing for over 10 years and love being outdoors in the unique and
+    adventurous settings only rock climbing can take you to.</li>
+    <li><a href="www.ukclimbing.com">ukclimbing.com</a> - this is the go-to reference for all things climbing in the UK. It
+    provided me with inspiration for areas to include in my site.</li>
+    <li><a href="www.climbers-club.co.uk">The climbers club</a> website gave me inspiration as to the scope of what
+    is possible for a climbing club. They are probably the largest group in the UK with a rich heritage so they were
+    a good source of inspiration to look to.</li>
+</ul>
+
+<h3>State 3 ways in which your site is accessible.</h3>
+<ul>
+    <li>Images have alt text.</li>
+    <li>My choice of colour provides good contrast for readability.</li>
+    <li>Navigation with just the keyboard is possible.</li>
+</ul>
+
+<h3>State 3 ways in which you have considered usability in your site</h3>
+<ul>
+    <li>Navigation of pages is very simple - all options available at the top of every page. Logo returns user to the
+        home page.</li>
+    <li>Switching through information on pages is simple using back and forward arrows - months on the calendar or meets
+        stops at the beginning and end of available data. Switching through the climbing areas loops in a circle.
+    </li>
+    <li>Layout if clear and responds to resizing of the viewport.</li>
+</ul>
+
+<h3>State 3 things you had to learn/find out by yourself when creating your site, and describe
+    how you did that</h3>
+<ul>
+    <li>I had to learn about CSS grid for the layout of the site. I watched videos on youtube by Jen Simmons on her
+        channel, Layout Land which I found very useful to get a good overview of the technology. I also used MDN as a
+        reference for the syntax. I really enjoyed getting to grips with CSS grid and the responsiveness it allows.</li>
+    <li>I learned more about git, I watched some youtube videos and looked at some websites to get a good understanding
+        of the underlying processes which allowed me to use git through the terminal/commandline with confidence,
+        including using a remote server.</li>
+    <li>I learned that the HTML collection objects that are returned by getElementsByClassName() are very useful and
+        give you the opportunity to add your own properties for further manipulation. This was very useful on the
+        areas page for example. I did this simply by experimenting to see if I could add an area and direction property
+        when the navigation arrows are pressed.
+    </li>
+</ul>
+
+<h3>What aspect(s) of your work do you think worked well and why?</h3>
+<p>I think that the strongest parts of my work are those that involve changing what is displayed on the page through
+    javascript, including the sidebar on the home page, the meets information templated area, the calendar and the
+    information on the climbing areas.</p>
+<p>These sections work well because the clientside operations in javascript make them respond very quickly and where
+    necessary, I created logic to limit the data being displayed. For example on the meets page, I created it so
+    that on the initial load of the page, the current month is displayed for meetings from the current day forwards only.
+    I also ensured that the user cannot back in to the past before the current time for the meets or the calendar, and
+    that both systems stop at the end of their data properly.</p>
+<p>I also think using CSS grid to make the layout responsive worked very well. I took great care to ensure that everything
+    reduced in size nicely and worked well together, including having the sidebar on the home page not display once the
+    viewport gets below 1000px wide.</p>
+<p>Using the same dataset for the sidebar and the meets page is also a good feature, meaning only one place needs to
+    be updated, reducing the chance for errors.</p>
+
+<h3>What aspect(s) of your work could be improved, and how might you do things differently
+    another time?</h3>
+<p>Although I like the bold and simple graphic style of my website, it could be improved. I feel I still have work to
+    do and experience to gain when it comes to layout and design. Another time I would perhaps consult someone with
+    graphic design experience to help create a more advanced and modern looking mockup that I could work to as I feel
+    my technical skills are there, but my graphic design skills are holding my back so I can feel a little stuck for
+    inspiration in that regard.</p>
+
+<h3>What resources were used when creating your work?</h3>
+<ul>
+    <li>I wrote all HTML, CSS, javascript and handlebars code myself.</li>
+    <li>As previously mentioned I used the youtube channel, Layout Land to learn about CSS Grid and developer.mozilla.org
+        as reference/documentation. I also used this site for a javascript and CSS reference/documentation source.</li>
+    <li>I used stack overflow for general debugging help but did not take any code from there.</li>
+    <li>I used the course material on handlebars to learn to implement and use that templating engine.</li>
+</ul>
+</body>
+</html>
